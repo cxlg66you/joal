@@ -80,11 +80,11 @@ public class Announcer implements AnnouncerFacade {
                 logger.warn("{} has failed to announce", this.torrent.getTorrentInfoHash().humanReadableValue(), e);
             }
             
-            Thread.sleep(10000);
+            Thread.sleep(100000);
             ++this.consecutiveFails;
-            if (this.consecutiveFails >= 5) {
+            if (this.consecutiveFails >= 9) {
                 if (logger.isInfoEnabled()) {
-                    logger.info("{} has failed to announce 5 times in a raw", this.torrent.getTorrentInfoHash().humanReadableValue());
+                    logger.info("{} has failed to announce 9 times in a raw", this.torrent.getTorrentInfoHash().humanReadableValue());
                 }
                 throw new TooMuchAnnouncesFailedInARawException(torrent);
             }
