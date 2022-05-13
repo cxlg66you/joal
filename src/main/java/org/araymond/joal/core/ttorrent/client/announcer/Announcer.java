@@ -80,7 +80,7 @@ public class Announcer implements AnnouncerFacade {
                 logger.warn("{} has failed to announce", this.torrent.getTorrentInfoHash().humanReadableValue(), e);
             }
             
-            Thred.sleep(10000);
+            Thread.sleep(10000);
             ++this.consecutiveFails;
             if (this.consecutiveFails >= 5) {
                 if (logger.isInfoEnabled()) {
