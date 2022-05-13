@@ -82,7 +82,11 @@ public class Announcer implements AnnouncerFacade {
             
             
             ++this.consecutiveFails;
-            Thread.sleep(100000);
+            try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
             if (this.consecutiveFails >= 9) {
                 if (logger.isInfoEnabled()) {
                     logger.info("{} has failed to announce 9 times in a raw", this.torrent.getTorrentInfoHash().humanReadableValue());
