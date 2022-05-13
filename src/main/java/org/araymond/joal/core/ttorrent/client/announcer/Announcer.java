@@ -84,8 +84,8 @@ public class Announcer implements AnnouncerFacade {
             ++this.consecutiveFails;
             try {
             Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException r) {
+            r.printStackTrace();
         }
             if (this.consecutiveFails >= 9) {
                 if (logger.isInfoEnabled()) {
